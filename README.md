@@ -7,8 +7,8 @@ This document is to get a quick idea of some Elixir basics and code you might
 be reading. Check the Elixir site for actual high quality documentation.
 
 
+ - Dynamically typed, immutable data types, loops with recursion
  - `.ex` for compiled and `.exs` for script files, run `elixir file`
- - Data types immutable, loops with recursion
  - `#` for comment
  - `Foo.bar/2` means function named "bar" of module "Foo" with arity 2
  - `?` suffix convention for function names returning boolean, e.g. `even?/1`
