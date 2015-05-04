@@ -141,3 +141,22 @@ be reading. Check the Elixir site for actual high quality documentation.
  - `~` for sigil, allowing language extensios, defined with function prototype
    `sigil_{identifier}`. Predefined sigils include e.g. regexes (`sigil_r`)
    `"foo" =~ ~r/foo|bar/`
+ - Status is usually returned as atom in tuple...
+   ```
+   File.read("hello") == {:error, :enoent}
+   ```
+   ...instead of raising (throwing) an error (exception).
+   ```
+   try do
+      raise "fail"
+   rescue
+      e in RuntimeError -> e
+   end
+   ```
+   Use `defexception` to create own exception types. *Errors are meant for
+   unexpected situations, not for control flow*. Process supervision is the
+   general way to protect against worst case situations.
+ - `try`/`catch` can be used to return values from bad API / nested structure
+   / function callback loop, should not be used unless it's the only feasible
+   option.
+ - `exit` signals supervisor
