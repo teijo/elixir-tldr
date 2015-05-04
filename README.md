@@ -115,7 +115,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   end
   ```
 
-- `Steam` for lazy enumeration, `Enum` for eager
+- `Stream` for lazy enumeration, `Enum` for eager
 - `|>` for pipe: `[1,2,3] |> Enum.sum == 6`, equal to `Enum.sum([1,2,3]) == 6`
 - Protocol (interface in some other languages) defines prototype for
   implementation
