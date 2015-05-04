@@ -138,3 +138,6 @@ be reading. Check the Elixir site for actual high quality documentation.
    ```
    Generator is not same as e.g. Python generator (it can still be enumerable
    lazy stream though). It's just the part producing values.
+ - `~` for sigil, allowing language extensios, defined with function prototype
+   `sigil_{identifier}`. Predefined sigils include e.g. regexes (`sigil_r`)
+   `"foo" =~ ~r/foo|bar/`
