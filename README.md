@@ -108,3 +108,22 @@ be reading. Check the Elixir site for actual high quality documentation.
    ```
  - `Steam` for lazy enumeration, `Enum` for eager
  - `|>` for pipe: `[1,2,3] |> Enum.sum == 6`, equal to `Enum.sum([1,2,3]) == 6`
+ - Protocol (interface in some other languages) defines prototype for
+   implementation
+   ```
+   defprotocol Validation do
+     @fallback_to_any true
+     def valid?(data)
+   end
+
+   defimpl Validation, for: Integer do
+     def valid?(i), do: i > 0
+   end
+
+   Validation.valid?(-3) == false
+   ```
+   Fallback for unexpeceted data types with `@fallback_to_any true` annotation
+   before `defprotocol` prototype allows.
+   ```
+   defimpl Validation, for: Any, do: (def valid?(i), do: false)
+   ```
