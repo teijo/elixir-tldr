@@ -113,7 +113,7 @@ be reading. Check the Elixir site for actual high quality documentation.
  - Default arguments, can also be statements (evaluated on call)
 
    ```elixir
-   def fun(x \\ IO.puts "hello world) do
+   def fun(x \\ IO.puts "hello world") do
      x
    end
    ```
