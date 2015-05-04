@@ -31,7 +31,7 @@ be reading. Check the Elixir site for actual high quality documentation.
    - Maps and keyword lists implement `Dict` interface
    - Structs are extended maps with default values getting the name of their
      module
-     ```
+     ```elixir
      defmodule Struct do
        defstruct foo: "string", bar: true
      end
@@ -61,7 +61,7 @@ be reading. Check the Elixir site for actual high quality documentation.
  - Pin `^` does in-place assert: `x = 1; {x, ^x} = {2, 1}; x == 2`
  - Guards
    - In `case`
-     ```
+     ```elixir
      case {1, 2} do
        {1, x} when x < 3 -> "guard matched #{x}"
        {1, x} -> "guard passed #{x}"
@@ -69,7 +69,7 @@ be reading. Check the Elixir site for actual high quality documentation.
      end
      ```
    - In function deifnition
-     ```
+     ```elixir
      def reduce(x) when x > 10
        x - 1
      end
@@ -78,7 +78,7 @@ be reading. Check the Elixir site for actual high quality documentation.
      end
      ```
  - `cond` to do if then else, if none match, error raised
-   ```
+   ```elixir
    cond do
      1 + 1 == 3 -> "if"
      1 + 1 == 4 -> "else if"
@@ -87,7 +87,7 @@ be reading. Check the Elixir site for actual high quality documentation.
    ```
  - `do/end`: `if true do: (expr, expr, ...)` same as `if true do expr; expr; ... end`
  - Modules group functions
-   ```
+   ```elixir
    defmodule Math do
      def sum(a, b) do
        a + b
@@ -101,7 +101,7 @@ be reading. Check the Elixir site for actual high quality documentation.
  - `&(&1 + 1)`, `&n` is nth, argument, statement equals `fn x -> x + 1 end`
    - i.e. `&List.flatten(&1, &2)` equals `fn(list, tail) -> List.flatten(list, tail) end`
  - Default arguments, can also be statements (evaluated on call)
-   ```
+   ```elixir
    def fun(x \\ IO.puts "hello world) do
      x
    end
@@ -110,7 +110,7 @@ be reading. Check the Elixir site for actual high quality documentation.
  - `|>` for pipe: `[1,2,3] |> Enum.sum == 6`, equal to `Enum.sum([1,2,3]) == 6`
  - Protocol (interface in some other languages) defines prototype for
    implementation
-   ```
+   ```elixir
    defprotocol Validation do
      @fallback_to_any true
      def valid?(data)
@@ -124,11 +124,11 @@ be reading. Check the Elixir site for actual high quality documentation.
    ```
    Fallback for unexpeceted data types with `@fallback_to_any true` annotation
    before `defprotocol` prototype allows.
-   ```
+   ```elixir
    defimpl Validation, for: Any, do: (def valid?(i), do: false)
    ```
  - `for` comprehension is syntactic sugar for enumerations
-   ```
+   ```elixir
    result = for x <- [1,2,3], # "generator"
      y = x + 1,               # temporary variables can be used
      y > 2,                   # "filter"
@@ -142,11 +142,11 @@ be reading. Check the Elixir site for actual high quality documentation.
    `sigil_{identifier}`. Predefined sigils include e.g. regexes (`sigil_r`)
    `"foo" =~ ~r/foo|bar/`
  - Status is usually returned as atom in tuple...
-   ```
+   ```elixir
    File.read("hello") == {:error, :enoent}
    ```
    ...instead of raising (throwing) an error (exception).
-   ```
+   ```elixir
    try do
       raise "fail"
    rescue
