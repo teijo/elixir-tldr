@@ -127,3 +127,14 @@ be reading. Check the Elixir site for actual high quality documentation.
    ```
    defimpl Validation, for: Any, do: (def valid?(i), do: false)
    ```
+ - `for` comprehension is syntactic sugar for enumerations
+   ```
+   result = for x <- [1,2,3], # "generator"
+     y = x + 1,               # temporary variables can be used
+     y > 2,                   # "filter"
+     y < 4,                   # another filter
+   do: y + 1                  # "collectable"
+   result == [4]
+   ```
+   Generator is not same as e.g. Python generator (it can still be enumerable
+   lazy stream though). It's just the part producing values.
