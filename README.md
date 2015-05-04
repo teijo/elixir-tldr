@@ -24,7 +24,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   - `%{:a => 1, :b => 2}` for traditional map, any value as key, no ordering,
     no duplicate keys (last assignment overwrites)
     - with atom-only keys, `%{a: 1, b: 2}` shorthand can be used
-    - pattern-matchable: `%{:k => v} = %{k: 1, k2: 2}; v == 1`
+    - pattern-match-able: `%{:k => v} = %{k: 1, k2: 2}; v == 1`
   - Maps and keyword lists implement `Dict` interface
   - Structs are extended maps with default values getting the name of their
     module
@@ -48,8 +48,8 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
 - `add = fn a, b -> a + b end` anonymous function, called `add.(1,2)`
 - convention `*size` named functions constant time, `*length` require
   iteration
-- `"intepolate #{variable}"`, `"concat" <> "string"`
-- FYI, comparing different datatypes ok. Valid: `1 < :atom`. Precedence from
+- `"interpolate #{variable}"`, `"concat" <> "string"`
+- FYI, comparing different data types OK. Valid: `1 < :atom`. Precedence from
   docs.
 - Pattern matching
   - `_` discard variable (not readable)
@@ -69,7 +69,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
     end
     ```
 
-  - In function deifnition
+  - In function definition
 
     ```elixir
     def reduce(x) when x > 10
@@ -133,7 +133,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   Validation.valid?(-3) == false
   ```
 
-  Fallback for unexpeceted data types with `@fallback_to_any true` annotation
+  Fallback for unexpected data types with `@fallback_to_any true` annotation
   before `defprotocol` prototype allows.
 
   ```elixir
@@ -153,8 +153,8 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
 
   Generator is not same as e.g. Python generator (it can still be enumerable
   lazy stream though). It's just the part producing values.
-- `~` for sigil, allowing language extensios, defined with function prototype
-  `sigil_{identifier}`. Predefined sigils include e.g. regexes (`sigil_r`)
+- `~` for sigil, allowing language extensions, defined with function prototype
+  `sigil_{identifier}`. Predefined sigils include e.g. regexps (`sigil_r`)
   `"foo" =~ ~r/foo|bar/`
 - Status is usually returned as atom in tuple...
 
