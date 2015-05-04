@@ -29,6 +29,21 @@ be reading. Check the Elixir site for actual high quality documentation.
      - with atom-only keys, `%{a: 1, b: 2}` shorthand can be used
      - pattern-matchable: `%{:k => v} = %{k: 1, k2: 2}; v == 1`
    - Maps and keyword lists implement `Dict` interface
+   - Structs are extended maps with default values getting the name of their
+     module
+     ```
+     defmodule Struct do
+       defstruct foo: "string", bar: true
+     end
+     %Struct{} == %Struct{foo: "string", bar: true}
+     %Struct{foo: "baz"} == %Struct{foo: "baz", bar: true}
+     ```
+     with compile-time checks `%Struct{baz: true} # CompileError, unknown key`
+     and can be pattern matched like maps `%Struct{foo: var} = %Struct{}; var
+     == "string"`
+     - Cloning struct with different defaults (and no new keys) using
+       structural sharing, use `|` pipe: `lower = %Struct{}; upper =
+       %Struct{lower | foo: "STRING"}`
  - `a..b` for ranges, `Enum.map(1..3, fn x -> x * 2 end) == [2, 4, 6]`,
    enumerable is a protocol
  - `add = fn a, b -> a + b end` anonymous function, called `add.(1,2)`
