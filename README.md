@@ -8,10 +8,12 @@ be reading. Check the Elixir site for actual high quality documentation.
 
 
  - `.ex` for compiled and `.exs` for script files, run `elixir file`
- - `#` for comment
  - Data types immutable, loops with recursion
- - No line termination. `;` allows joining lines: `x = 1; y = x + 1; y == 2`
+ - `#` for comment
  - `Foo.bar/2` means function named "bar" of module "Foo" with arity 2
+ - `?` suffix convention for function names returning boolean, e.g. `even?/1`
+   instead of `is_even/1`
+ - No line termination. `;` allows joining lines: `x = 1; y = x + 1; y == 2`
  - Strings UTF-8
    - `"` double quote is for strings
    - `'` single quote is char list
