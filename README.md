@@ -1,11 +1,8 @@
 Elixir tl;dr
 ============
 
-Shortlist of basics grabbed Elixir introduction at http://elixir-lang.org/getting-started/introduction.html
-
-This document is to get a quick idea of some Elixir basics and code you might
-be reading. Check the Elixir site for actual high quality documentation.
-
+This is a short list of Elixir basics made based on the great official Elixir
+introduction found at http://elixir-lang.org/getting-started/introduction.html
 
 - Dynamically typed, immutable data types, loops with recursion
 - `.ex` for compiled and `.exs` for script files, run `elixir file`
