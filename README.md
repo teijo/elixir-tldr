@@ -5,7 +5,10 @@ This is a short list of Elixir basics made based on the great official Elixir
 introduction found at http://elixir-lang.org/getting-started/introduction.html
 
 - Dynamically typed, immutable data types, loops with recursion
-- `.ex` for compiled and `.exs` for script files, run `elixir file`
+- Runs on Erlang VM, can call Erlang code with no overhead
+- `iex` for REPL, `elixir <file>` to evaluate script, `elixirc` is the
+  compiler, `mix` is the build tool
+- File naming convention: `.ex` for compiled and `.exs` for script files
 - `#` for comment
 - `Foo.bar/2` means function named "bar" of module "Foo" with arity 2
 - `?` suffix convention for function names returning boolean, e.g. `even?/1`
