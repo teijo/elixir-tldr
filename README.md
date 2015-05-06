@@ -6,6 +6,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
 
 - Dynamically typed, immutable data types, loops with recursion
 - Runs on Erlang VM, can call Erlang code with no overhead
+- Parallelism by message passing and green threads ("processes")
 - `iex` for REPL, `elixir <file>` to evaluate script, `elixirc` is the
   compiler, `mix` is the build tool
 - File naming convention: `.ex` for compiled and `.exs` for script files
@@ -62,6 +63,33 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   - `{:ok, result} = {:error, 13}` -> exception
   - `[head | tail] = [1, 2, 3]` -> `head == 1 and tail == [2, 3]`
 - Pin `^` does in-place assert: `x = 1; {x, ^x} = {2, 1}; x == 2`
+- Functions' last statement is the return value
+
+  ```
+  def name(a, b, c)
+    "returned string"
+  end
+  ```
+
+- A parallel "process" is started with `spawn`, each has `pid` for addressing
+  the process. Current `pid` read with `self()`.
+  - Message are sent to `pid` with `send`, e.g. `send self(), {:some "data}`
+  - `receive` blocks and waits for pattern matched messages
+
+  ```
+  pid = spawn fn ->
+    receive do
+      {:msg_a, data} -> "Got tuple matching :msg_a with #{data}"
+      "foo" -> "Got string \"foo\""
+      some_var -> "Caught something else: #{some_var}"
+    after
+      1000000 -> "timeout, didn't get anything in 1000ms"
+    end
+  end
+  ```
+
+  - `pid` can be named with `Process.register(pid, :name_for_pid)`
+
 - Guards
   - In `case`
 
