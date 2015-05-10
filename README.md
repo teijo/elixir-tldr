@@ -89,6 +89,13 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   ```
 
   creates `Math.sum/2`
+- Erlang code can be accessed by their atomic names
+
+  ```elixir
+  :math.pow(2, 2)
+  # > 4.0
+  ```
+
 - `def/2` for public (visible to other modules), `defp/2` for private
   functions
 - `captured_fn = &Math.sum/2; captured_fn.(1, 2) == 3`
