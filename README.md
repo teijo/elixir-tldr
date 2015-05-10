@@ -11,6 +11,8 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   compiler, `mix` is the build tool
 - File naming convention: `.ex` for compiled and `.exs` for script files
 - `#` for comment
+- `IO.puts "print screen"`, `IO.inspect(data_to_dump_on_screen)`,
+  `inspect(data_to_string)`
 - Parenthesis are optional in unambiguous situations
 - `Foo.bar/2` means function named "bar" of module "Foo" with arity 2
 - `?` suffix convention for function names returning boolean, e.g. `even?/1`
