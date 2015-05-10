@@ -104,15 +104,19 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
     end
     ```
 
-  - In function definition
+  - In function definition used for dispatching
 
     ```elixir
-    def reduce(x) when x > 10
-      x - 1
+    defmodule Guard do
+      def func(a) when a > 0 do "#{a} less than 0" end
+      def func(a) when a < 0 do "#{a} greater than 0" end
     end
-    def reduce(x)
-      x
-    end
+    Guard.func(1)
+    # > "1 less than 0"
+    Guard.func(-1)
+    # > "-1 greater than 0"
+    Guard.func(0)
+    # > ** (FunctionClauseError) no function clause matching in Guard.func/1
     ```
 
 - `cond` to do if then else, if none match, error raised
