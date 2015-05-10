@@ -22,6 +22,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   - `"` double quote is for strings
   - `'` single quote is char list
   - `<<0, 1, 2>>` is byte sequence
+  - `~s({"json": "string"})` for "triple-quote" string, i.e. no `"` escaping
 - Data structures
   - `[]` for _linked list_ (prepending is fast `[1] ++ []`)
   - `{}` for tuple
