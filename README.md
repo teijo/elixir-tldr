@@ -74,6 +74,32 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   end
   ```
 
+- Modules group functions
+
+  ```elixir
+  defmodule Math do
+    def sum(a, b) do
+      a + b
+    end
+  end
+  Math.sum(1, 2)
+  # > 3
+  ```
+
+  creates `Math.sum/2`
+- `def/2` for public (visible to other modules), `defp/2` for private
+  functions
+- `captured_fn = &Math.sum/2; captured_fn.(1, 2) == 3`
+- `&(&1 + 1)`, `&n` is nth, argument, statement equals `fn x -> x + 1 end`
+  - i.e. `&List.flatten(&1, &2)` equals `fn(list, tail) -> List.flatten(list, tail) end`
+- Default arguments, can also be statements (evaluated on call)
+
+  ```elixir
+  def fun(x \\ IO.puts "hello world") do
+    x
+  end
+  ```
+
 - A parallel "process" is started with `spawn`, each has `pid` for addressing
   the process. Current `pid` read with `self()`.
   - Message are sent to `pid` with `send`, e.g. `send self(), {:some "data}`
@@ -130,30 +156,6 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   ```
 
 - `do/end`: `if true do: (expr, expr, ...)` same as `if true do expr; expr; ... end`
-- Modules group functions
-
-  ```elixir
-  defmodule Math do
-    def sum(a, b) do
-      a + b
-    end
-  end
-  ```
-
-  creates `Math.sum/2`
-- `def/2` for public (visible to other modules), `defp/2` for private
-  functions
-- `captured_fn = &Math.sum/2; captured_fn.(1, 2) == 3`
-- `&(&1 + 1)`, `&n` is nth, argument, statement equals `fn x -> x + 1 end`
-  - i.e. `&List.flatten(&1, &2)` equals `fn(list, tail) -> List.flatten(list, tail) end`
-- Default arguments, can also be statements (evaluated on call)
-
-  ```elixir
-  def fun(x \\ IO.puts "hello world") do
-    x
-  end
-  ```
-
 - `Stream` for lazy enumeration, `Enum` for eager
 - `|>` for pipe: `[1,2,3] |> Enum.sum == 6`, equal to `Enum.sum([1,2,3]) == 6`
 - Protocol (interface in some other languages) defines prototype for
