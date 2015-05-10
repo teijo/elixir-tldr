@@ -143,13 +143,13 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
 
     ```elixir
     defmodule Guard do
-      def func(a) when a > 0 do "#{a} less than 0" end
-      def func(a) when a < 0 do "#{a} greater than 0" end
+      def func(a) when a < 0 do "#{a} less than 0" end
+      def func(a) when a > 0 do "#{a} greater than 0" end
     end
     Guard.func(1)
-    # > "1 less than 0"
+    # > "1 greater than 0"
     Guard.func(-1)
-    # > "-1 greater than 0"
+    # > "-1 less than 0"
     Guard.func(0)
     # > ** (FunctionClauseError) no function clause matching in Guard.func/1
     ```
