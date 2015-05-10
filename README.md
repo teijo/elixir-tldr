@@ -15,6 +15,8 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   `inspect(data_to_string)`
 - Parenthesis are optional in unambiguous situations
 - `Foo.bar/2` means function named "bar" of module "Foo" with arity 2
+- In REPL `h div` prints documentation for `div`, `h Kernel` for `Kernel`
+  module
 - `?` suffix convention for function names returning boolean, e.g. `even?/1`
   instead of `is_even/1`
 - No line termination. `;` allows joining lines: `x = 1; y = x + 1; y == 2`
