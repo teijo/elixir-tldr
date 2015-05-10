@@ -70,7 +70,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
 - Pin `^` does in-place assert: `x = 1; {x, ^x} = {2, 1}; x == 2`
 - Functions' last statement is the return value
 
-  ```
+  ```elixir
   def name(a, b, c)
     "returned string"
   end
