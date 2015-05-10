@@ -9,6 +9,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
 - Parallelism by message passing and green threads ("processes")
 - `iex` for REPL, `elixir <file>` to evaluate script, `elixirc` is the
   compiler, `mix` is the build tool
+- Hex is the package repository https://hex.pm/ used by `mix`
 - File naming convention: `.ex` for compiled and `.exs` for script files
 - `#` for comment
 - `IO.puts "print screen"`, `IO.inspect(data_to_dump_on_screen)`,
