@@ -105,7 +105,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   - Message are sent to `pid` with `send`, e.g. `send self(), {:some "data}`
   - `receive` blocks and waits for pattern matched messages
 
-  ```
+  ```elixir
   pid = spawn fn ->
     receive do
       {:msg_a, data} -> "Got tuple matching :msg_a with #{data}"
