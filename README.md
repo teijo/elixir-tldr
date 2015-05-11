@@ -4,6 +4,9 @@ Elixir tl;dr
 This is a short list of Elixir basics made based on the great official Elixir
 introduction found at http://elixir-lang.org/getting-started/introduction.html
 
+Most snippets can be pasted to `iex`, the REPL (see below), evaluation result
+is displayed as comment below, i.e. returned `true` would be `# > true`
+
 - Dynamically typed, immutable data types, loops with recursion
 - Runs on Erlang VM, can call Erlang code with no overhead
 - Parallelism by message passing and green threads ("processes")
@@ -45,7 +48,9 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
       defstruct foo: "string", bar: true
     end
     %Struct{} == %Struct{foo: "string", bar: true}
+    # > true
     %Struct{foo: "baz"} == %Struct{foo: "baz", bar: true}
+    # > true
     ```
 
     with compile-time checks `%Struct{baz: true} # CompileError, unknown key`
@@ -69,15 +74,8 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   - `{:ok, result} = {:error, 13}` -> exception
   - `[head | tail] = [1, 2, 3]` -> `head == 1 and tail == [2, 3]`
 - Pin `^` does in-place assert: `x = 1; {x, ^x} = {2, 1}; x == 2`
-- Functions' last statement is the return value
-
-  ```elixir
-  def name(a, b, c)
-    "returned string"
-  end
-  ```
-
-- Modules group functions
+- Functions must be defined inside modules, last statement produces return
+  value
 
   ```elixir
   defmodule Math do
@@ -138,6 +136,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
       {1, x} -> "guard passed #{x}"
       _ -> "match rest"
     end
+    # > "guard matched 2"
     ```
 
   - In function definition used for dispatching
@@ -163,6 +162,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
     1 + 1 == 4 -> "else if"
     true -> "else"
   end
+  # > "else"
   ```
 
 - `do/end`: `if true do: (expr, expr, ...)` same as `if true do expr; expr; ... end`
@@ -181,7 +181,8 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
     def valid?(i), do: i > 0
   end
 
-  Validation.valid?(-3) == false
+  Validation.valid?(-3)
+  # > false
   ```
 
   Fallback for unexpected data types with `@fallback_to_any true` annotation
@@ -199,7 +200,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
     y > 2,                   # "filter"
     y < 4,                   # another filter
   do: y + 1                  # "collectable"
-  result == [4]
+  # > [4]
   ```
 
   Generator is not same as e.g. Python generator (it can still be enumerable
@@ -210,7 +211,8 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
 - Status is usually returned as atom in tuple...
 
   ```elixir
-  File.read("hello") == {:error, :enoent}
+  File.read("hello")
+  # > {:error, :enoent}
   ```
 
   ...instead of raising (throwing) an error (exception).
@@ -221,6 +223,7 @@ introduction found at http://elixir-lang.org/getting-started/introduction.html
   rescue
      e in RuntimeError -> e
   end
+  # > %RuntimeError{message: "fail"}
   ```
 
   Use `defexception` to create own exception types. *Errors are meant for
