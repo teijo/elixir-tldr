@@ -116,14 +116,17 @@ is displayed as comment below, i.e. returned `true` would be `# > true`
 
   ```elixir
   pid = spawn fn ->
-    receive do
+    str = receive do
       {:msg_a, data} -> "Got tuple matching :msg_a with #{data}"
       "foo" -> "Got string \"foo\""
       some_var -> "Caught something else: #{some_var}"
     after
       1000000 -> "timeout, didn't get anything in 1000ms"
     end
+    IO.puts str
   end
+  send(pid, {:msg_a, "foo"})
+  # > Got tuple matching :msg_a with foo
   ```
 
   - `pid` can be named with `Process.register(pid, :name_for_pid)`
