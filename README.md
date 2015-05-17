@@ -171,7 +171,20 @@ is displayed as comment below, i.e. returned `true` would be `# > true`
 
 - `do/end`: `if true do: (expr, expr, ...)` same as `if true do expr; expr; ... end`
 - `Stream` for lazy enumeration, `Enum` for eager
-- `|>` for pipe: `[1,2,3] |> Enum.sum == 6`, equal to `Enum.sum([1,2,3]) == 6`
+- `|>` for pipe, prepends operator LHS (left-hand side) to argument list of
+  RHS function
+
+  ```elixir
+  # List.delete(list, item)
+  [1, 2] |> List.delete(1)
+  # > [2]
+
+  [1, 2, 3] |> Enum.map(fn x -> x + 1 end) |> Enum.filter(fn x -> x < 3 end) |> Enum.sum
+  # > 2
+  ```
+
+  - Elixir functions try to keep operated value as functions' first argument
+    to promote pipe operator's usage
 - Protocol (interface in some other languages) defines prototype for
   implementation
 
