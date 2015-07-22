@@ -4,6 +4,9 @@ Elixir tl;dr
 This is a short list of Elixir basics made based on the great official Elixir
 introduction found at http://elixir-lang.org/getting-started/introduction.html
 
+For insight on what prompted the creation of this document, check out [Elixir,
+your shortcut to the world of Erlang](http://reaktor.com/blog/elixir-your-shortcut-to-the-world-of-erlang/).
+
 Most snippets can be pasted to `iex`, the REPL (see below), evaluation result
 is displayed as comment below, i.e. returned `true` would be `# > true`
 
