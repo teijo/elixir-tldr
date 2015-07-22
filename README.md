@@ -12,7 +12,8 @@ is displayed as comment below, i.e. returned `true` would be `# > true`
 
 - Dynamically typed, immutable data types, loops with recursion
 - Runs on Erlang VM, can call Erlang code with no overhead
-- Parallelism by message passing and green threads ("processes")
+- Parallelism by message passing and memory-isolated green threads
+  ("processes")
 - Variables can be assigned multiple times (unlike in Erlang)
 - `iex` for REPL, `elixir <file>` to evaluate script, `elixirc` is the
   compiler, `mix` is the build tool
